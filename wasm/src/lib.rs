@@ -32,21 +32,7 @@ fn jserror<E: fmt::Debug>(e: E) -> JsValue {
     JsValue::from(format!("{:?}", e))
 }
 
-#[wasm_bindgen]
-pub fn interpret_string(json_ast: &str) -> Result<JsValue, JsValue> {
-    let json: JSON = serde_json::from_str(json_ast).map_err(jserror)?;
-    let program = Program::parse_from(&json).map_err(jserror)?;
-
-    let mut heap = Heap::new();
-    let result = heap
-        .evaluate(&program)
-        .map_err(jserror)?
-        // TODO: implement serde::Serializer directly for JSValue?
-        .to_json(&heap)
-        .map_err(jserror)?;
-    JsValue::from_serde(&result).map_err(jserror)
-}
-
+/// Takes a ESTree AST representation and produces a result as a pretty-printed string
 #[wasm_bindgen]
 pub fn interpret(jsobject: &JsValue) -> Result<JsValue, JsValue> {
     let json: JSON = jsobject.into_serde().map_err(jserror)?;
