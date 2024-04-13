@@ -1,6 +1,6 @@
 use core::cell::RefCell;
 use core::fmt;
-use slothjs::{
+use sljs::{
     Heap,
     Program,
     //Interpretable,

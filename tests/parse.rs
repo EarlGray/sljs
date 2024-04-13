@@ -3,7 +3,7 @@ mod parse {
 
 use serde_json::json;
 
-use slothjs::{
+use sljs::{
     Exception,
     Program,
     runtime::{self, Runtime, EvalError},

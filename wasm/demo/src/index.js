@@ -91,8 +91,8 @@ const greetings = [
     let i = Math.floor(Math.random() * greetings.length);
     let desc = Repl.newElement('div', {id: 'hello'}, greetings[i]);
 
-    let source = Repl.newElement('a', {href: 'https://github.com/EarlGray/language-incubator/tree/main/js/slothjs'}, 'source');
-    let docs = Repl.newElement('a', {href: 'https://earlgray.github.io/language-incubator/js/slothjs/index.html'}, 'documentation');
+    let source = Repl.newElement('a', {href: 'https://github.com/EarlGray/sljs'}, 'source');
+    let docs = Repl.newElement('a', {href: 'https://earlgray.github.io/sljs/index.html'}, 'documentation');
     let demo = Repl.newElement('a', {href: 'https://dmytrish.net/sljs'}, 'demo');
     let menu = Repl.newElement('div', {id: 'menu'}, source, docs, demo);
 
@@ -103,7 +103,7 @@ const greetings = [
 
 Promise.all([
     import(/* webpackPrefetch: true */"esprima"),
-    import(/* webpackPrefetch: true */"slothjs-wasm"),
+    import(/* webpackPrefetch: true */"sljs-wasm"),
 ]).then(({0: esprima, 1: sljs}) => {
     welcome.innerHTML = 'Welcome to sljs!'
 

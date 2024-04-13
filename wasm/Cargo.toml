@@ -1,5 +1,5 @@
 [package]
-name = "slothjs-wasm"
+name = "sljs-wasm"
 version = "0.1.0"
 authors = ["Dmytro S <me@dmytrish.net>"]
 edition = "2021"
@@ -11,7 +11,7 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook", "wee_alloc"]
 
 [dependencies]
-slothjs = { path = "..", default-features = false }
+sljs = { path = "..", default-features = false }
 serde_json = "1.0"
 
 wasm-bindgen = { version = "0.2.63", features = ["serde-serialize"] }

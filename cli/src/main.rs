@@ -21,8 +21,8 @@ use std::path::PathBuf;
 use atty::{self, Stream};
 
 use clap::Parser;
-use slothjs::runtime::{EsprimaParser, JSONParser, NodejsParser, Parser as JSParser, Runtime};
-use slothjs::source;
+use sljs::runtime::{EsprimaParser, JSONParser, NodejsParser, Parser as JSParser, Runtime};
+use sljs::source;
 
 /// Reads stdin, parses and interprets it as one block.
 pub fn batch_main(sljs: &mut Runtime) -> io::Result<()> {

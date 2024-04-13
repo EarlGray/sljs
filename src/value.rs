@@ -150,7 +150,7 @@ impl JSValue {
     /// `to_string()` makes a human-readable string representation of the value:
     /// ```
     /// # use serde_json::json;
-    /// # use slothjs::{JSValue, Heap};
+    /// # use sljs::{JSValue, Heap};
     /// # let mut heap = Heap::new();
     /// assert_eq!(
     ///     JSValue::from("1").to_string(&mut heap).unwrap().as_str(),

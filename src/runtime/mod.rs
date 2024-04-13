@@ -108,8 +108,8 @@ pub trait Parser: fmt::Debug {
 /// [`EsprimaParser`]:
 ///
 /// ```
-/// use slothjs::JSON;
-/// use slothjs::runtime::{Runtime, NodejsParser};
+/// use sljs::JSON;
+/// use sljs::runtime::{Runtime, NodejsParser};
 ///
 /// let parser = Box::new(NodejsParser::new());
 /// let mut sljs = Runtime::load(parser)
@@ -119,8 +119,8 @@ pub trait Parser: fmt::Debug {
 /// The [`Runtime`] evaluates JavaScript source code and creates/stores [`crate::JSObject`]s.
 ///
 /// ```
-/// # use slothjs::JSON;
-/// # use slothjs::runtime::{Runtime, NodejsParser};
+/// # use sljs::JSON;
+/// # use sljs::runtime::{Runtime, NodejsParser};
 /// # let parser = Box::new(NodejsParser::new());
 /// # let mut sljs = Runtime::load(parser).expect("Runtime::load");
 ///

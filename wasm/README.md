@@ -1,6 +1,6 @@
 # slothjs_wasm
 
-This is a wasm32-unknown-unknown build of slothjs, created and packaged via wasm-pack.
+This is a wasm32-unknown-unknown build of sljs, created and packaged via wasm-pack.
 
 Build: 
 
