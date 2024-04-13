@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["CallContext","Closure","HostFunc"],"type":["HostFn"]};
