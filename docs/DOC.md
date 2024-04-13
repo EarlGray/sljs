@@ -203,8 +203,8 @@ Most functions return a [`JSResult<T>`], an alias for `Result<T, Exception>`. An
 can wrap:
 
 - [`Exception::UserThrown`] produced by a `throw` in JavaScript
-- [`Exception::SyntaxTreeError`] wrapping a [`error::ParseError`]
-- builtin errors, e.g. [`Exception::ReferenceNotFound`], etc.
+- [`Exception::Syntax`] wrapping a [`error::ParseError`]
+- builtin errors, e.g. [`Exception::Reference`], etc.
 
 [`runtime::EvalError`] is a wrapper over [`Exception`], serde (de)serialization errors, I/O
 errors when executing an external parser.
