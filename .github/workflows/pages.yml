@@ -1,0 +1,26 @@
+name: Build and Deply Github Pages
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+  deploy-pages:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: install node
+        uses: actions/setup-node@v4
+
+      - name: install wasm-pack
+        run: npm install -g wasm-pack
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Pages
+        run: make site
+
+      - name: Deploy Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: site
