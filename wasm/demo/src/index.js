@@ -92,8 +92,8 @@ const greetings = [
     let desc = Repl.newElement('div', {id: 'hello'}, greetings[i]);
 
     let source = Repl.newElement('a', {href: 'https://github.com/EarlGray/sljs'}, 'source');
-    let docs = Repl.newElement('a', {href: 'https://earlgray.github.io/sljs/index.html'}, 'documentation');
-    let demo = Repl.newElement('a', {href: 'https://dmytrish.net/sljs'}, 'demo');
+    let docs = Repl.newElement('a', {href: 'https://earlgray.github.io/sljs/sljs'}, 'documentation');
+    let demo = Repl.newElement('a', {href: 'https://earlgray.github.io/sljs'}, 'demo');
     let menu = Repl.newElement('div', {id: 'menu'}, source, docs, demo);
 
     welcome = Repl.newElement('div', {id: 'welcome', class: 'welcome'}, 'Loading...');
