@@ -27,7 +27,7 @@ impl JSRef {
 
     /// Check if the object behind the reference `self` has a prototype of `constructor`.
     /// ```
-    /// # use slothjs::{JSObject, Heap};
+    /// # use sljs::{JSObject, Heap};
     /// # let mut heap = Heap::new();
     /// let array_ref = heap.alloc(JSObject::from_array(vec![]));
     /// array_ref.expect_instance("Array", &heap).unwrap();
@@ -271,7 +271,7 @@ impl Heap {
 
     /// Lookup a property chain starting from the current scope, e.g.
     /// ```
-    /// # use slothjs::{Heap, Interpreted};
+    /// # use sljs::{Heap, Interpreted};
     /// # let mut heap = Heap::new();
     /// assert_eq!(
     ///     heap.lookup_path(&["Array", "prototype"]).unwrap(),

@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "esprima": "^4.0.1",
-    "slothjs-wasm": "file:../pkg"
+    "sljs-wasm": "file:../pkg"
   }
 }

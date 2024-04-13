@@ -1,8 +1,8 @@
-slothjs - a naïve, primitive, savage JavaScript interpreter library.
+sljs - a naïve, primitive, savage JavaScript interpreter library.
 
 ## Getting started
 
-slothjs does not contains a lexical JavaScript parser: it consumes an AST tree supplied in the
+sljs does not contains a lexical JavaScript parser: it consumes an AST tree supplied in the
 [ESTree format](https://github.com/estree/estree/blob/master/es5.md).
 
 When compiled with `feature = ["std"]` (used by default), sljs provides [`runtime::Runtime`]
@@ -21,8 +21,8 @@ JavaScript called [Esprima](https://esprima.org/):
   of the builtin JavaScript objects like String/Object/Number/etc are not implemented yet.
 
 ```
-use slothjs::JSValue;
-use slothjs::runtime::{Runtime, EsprimaParser};
+use sljs::JSValue;
+use sljs::runtime::{Runtime, EsprimaParser};
 
 let parser = Box::new(EsprimaParser::new());
 let mut runtime = Runtime::load(parser).expect("Runtime::load");
@@ -45,7 +45,7 @@ available. In that case you have to do the grunt work yourself:
 
 For example:
 ```
-use slothjs::{JSON, Heap};      // an alias for `serde_json::Value`
+use sljs::{JSON, Heap};      // an alias for `serde_json::Value`
 
 // JavaScript: "2 + 2"
 let estree: JSON = serde_json::from_str(r#"{
@@ -65,10 +65,10 @@ let estree: JSON = serde_json::from_str(r#"{
 ```
 
 [`Program::parse_from`] can parse any representation of ESTree that implements the
-[`SourceNode`] trait; a reference implementation is provided for `slothjs::JSON` (an alias for
+[`SourceNode`] trait; a reference implementation is provided for `sljs::JSON` (an alias for
 `serde_json::Value`):
 ```
-# use slothjs::*;
+# use sljs::*;
 # let source = r#"
 # { "type": "Program", "body": [
 #   { "type": "ExpressionStatement", "expression": {
@@ -84,7 +84,7 @@ To run a [`Program`], create a [`Heap`] (it's roughly a vector of
 [`JSObject`]s with its indexes encapsulated in [`JSRef`]s) and interpret
 the `program` on this `heap`:
 ```
-# use slothjs::*;
+# use sljs::*;
 # let source = r#"
 # { "type": "Program", "body": [
 #   { "type": "ExpressionStatement", "expression": {
@@ -111,8 +111,8 @@ A value of type [`Interpreted`] is usually a wrapper for a [`JSValue`],
 although it might represent an object member that does not exist yet (which evaluates to
 `JSValue::Undefined` when reading):
 ```
-# use slothjs::*;
-# use slothjs::interpret::Interpretable;
+# use sljs::*;
+# use sljs::interpret::Interpretable;
 # let source = r#"
 # { "type": "Program", "body": [
 #   { "type": "ExpressionStatement", "expression": {
@@ -151,7 +151,7 @@ TODO: more about JSObject API
 An example of calling a JavaScript closure from Rust using [`Heap::execute`]:
 
 ```
-use slothjs::*;
+use sljs::*;
 
 // function zoom(size) { return 1.1 * size; }
 let estree: JSON = serde_json::from_str(r#"{
@@ -210,7 +210,7 @@ can wrap:
 errors when executing an external parser.
 
 ## What it can do?
-See [src/test.rs](../src/slothjs/test.rs.html), all uncommented tests in there should work.
+See [src/test.rs](../src/sljs/test.rs.html), all uncommented tests in there should work.
 
 ## What is not done yet?
 - garbage collection;

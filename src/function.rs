@@ -14,7 +14,7 @@ use crate::{
 ///
 /// The regular usage is:
 /// ```
-/// # use slothjs::{Heap, JSRef, JSValue, JSON, Interpreted, CallContext};
+/// # use sljs::{Heap, JSRef, JSValue, JSON, Interpreted, CallContext};
 /// # let mut heap = Heap::new();
 /// let func_ref: JSRef = heap
 ///     .lookup_var("parseInt").expect("parseInt")
