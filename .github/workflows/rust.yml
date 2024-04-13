@@ -16,7 +16,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
+
+    - name: install node
+      uses: actions/setup-node@v4
+
+    - name: install wasm-pack
+      run: npm install -g wasm-pack
+
+    - name: Build sljs
       run: cargo build --verbose
-    - name: Run tests
+
+    - name: Build sljs_wasm
+      run: cd wasm && wasm-pack build
+
+    - name: Test sljs
       run: cargo test --verbose
+
+    - name: Test sljs_wasm
+      run: cd wasm && wasm-pack test --node
