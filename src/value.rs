@@ -359,8 +359,14 @@ impl JSValue {
             result.push_str(str_other.as_str());
             return Ok(JSValue::from(result));
         }
-        let num_self = JSValue::Undefined.eq(self).then_some(f64::NAN).or_else(|| self.numberify(heap));
-        let num_other = JSValue::Undefined.eq(other).then_some(f64::NAN).or_else(|| other.numberify(heap));
+        let num_self = JSValue::Undefined
+            .eq(self)
+            .then_some(f64::NAN)
+            .or_else(|| self.numberify(heap));
+        let num_other = JSValue::Undefined
+            .eq(other)
+            .then_some(f64::NAN)
+            .or_else(|| other.numberify(heap));
         if let (Some(lnum), Some(rnum)) = (num_self, num_other) {
             return Ok(JSValue::from(lnum + rnum));
         }

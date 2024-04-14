@@ -15,13 +15,9 @@ fn test_interpret() {
     #[rustfmt::skip]
     use sljs::ast::{ expr, stmt };
 
-    let var_x = sljs::Program::from_stmt(
-        stmt::var([("x", expr::lit(12))].iter())
-    ).to_estree();
+    let var_x = sljs::Program::from_stmt(stmt::var([("x", expr::lit(12))].iter())).to_estree();
 
-    let x_plus = sljs::Program::from_stmt(
-        expr::add(expr::id("x"), expr::lit(8))
-    ).to_estree();
+    let x_plus = sljs::Program::from_stmt(expr::add(expr::id("x"), expr::lit(8))).to_estree();
 
     let var_x = JsValue::from_serde(&var_x).unwrap();
     sljs_wasm::interpret(&var_x).unwrap();
