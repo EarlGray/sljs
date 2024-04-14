@@ -471,6 +471,12 @@
 <a href="#469" id="469">469</a>
 <a href="#470" id="470">470</a>
 <a href="#471" id="471">471</a>
+<a href="#472" id="472">472</a>
+<a href="#473" id="473">473</a>
+<a href="#474" id="474">474</a>
+<a href="#475" id="475">475</a>
+<a href="#476" id="476">476</a>
+<a href="#477" id="477">477</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>core::{borrow::Borrow, convert::Infallible, ops::Deref, str::Chars};
 
 <span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, CallContext, Exception, Heap, Interpreted, JSObject, JSRef, JSResult};
@@ -832,8 +838,14 @@
             result.push_str(str_other.as_str());
             <span class="kw">return </span><span class="prelude-val">Ok</span>(JSValue::from(result));
         }
-        <span class="kw">let </span>num_self = JSValue::Undefined.eq(<span class="self">self</span>).then_some(f64::NAN).or_else(|| <span class="self">self</span>.numberify(heap));
-        <span class="kw">let </span>num_other = JSValue::Undefined.eq(other).then_some(f64::NAN).or_else(|| other.numberify(heap));
+        <span class="kw">let </span>num_self = JSValue::Undefined
+            .eq(<span class="self">self</span>)
+            .then_some(f64::NAN)
+            .or_else(|| <span class="self">self</span>.numberify(heap));
+        <span class="kw">let </span>num_other = JSValue::Undefined
+            .eq(other)
+            .then_some(f64::NAN)
+            .or_else(|| other.numberify(heap));
         <span class="kw">if let </span>(<span class="prelude-val">Some</span>(lnum), <span class="prelude-val">Some</span>(rnum)) = (num_self, num_other) {
             <span class="kw">return </span><span class="prelude-val">Ok</span>(JSValue::from(lnum + rnum));
         }
